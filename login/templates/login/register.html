@@ -1,0 +1,36 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Registro
+{% endblock title %}
+
+
+
+{% block body %}
+
+  
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1>Complete el formulario para registrarse</h1>
+                <h3>{{message}} </h3>
+
+                <form action = "{% url 'login:register' %}" method= "post"> {% csrf_token %}
+                    {{myform.as_p}}
+
+                    <button type= "submit"> Registrarse </button>
+
+                </form>
+
+                <a   href="{% url 'landing_news:landing'%}">
+                    <button type="button">Volver</button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

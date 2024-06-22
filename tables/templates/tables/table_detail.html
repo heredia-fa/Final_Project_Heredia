@@ -1,0 +1,35 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Mesa
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <h1>{{table.name}}</h1>
+
+                <ul>
+                    <li>Juego: {{table.game}}</li>
+                    <li>Fecha: {{table.date}}</li>
+                    <li>Cantidad maxima de jugadores: {{table.max_players}}</li>
+                    <li>Lugares libres: {{table.free_places}} </li>
+
+                </ul>
+                <p> {{table.description}} </p>
+               
+                <a   href="{% url 'tables:tables_list'%}">
+                    <button type="button">Volver</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}

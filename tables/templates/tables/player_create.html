@@ -1,0 +1,34 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Crea Jugador
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <h1>Crear Jugador</h1>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <form action = "{% url 'tables:player_create' %}" method= "post" enctype="multipart/form-data"> {% csrf_token %}
+                    {{form.as_p}}
+
+                    <button type= "submit"> Crear </button>
+
+                </form>
+
+                <a   href="{% url 'tables:players_list'%}">
+                    <button type="button">Volver</button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

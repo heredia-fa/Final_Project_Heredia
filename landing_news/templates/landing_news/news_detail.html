@@ -1,0 +1,39 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Noticia
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <h1>{{new.title}}</h1>
+                
+                {% if new.date == new.original_date %}
+                    <p>{{new.date}}</p>
+                {% else %}
+                    <p>{{new.original_date}}</p>
+                    <p>{{new.date}} Fecha de edicion</p> 
+                {% endif %}
+                    
+                
+                <p>{{new.description}}</p>
+                {% if new.picture %}
+                <img src="{{ new.picture.url }}" alt="Foto de {{ new.title }}" width="" height="">
+                {% endif %}
+                
+                <a   href="{% url 'landing_news:landing'%}">
+                    <button type="button">Volver</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,34 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Crea Noticia
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <h1>Crear Noticia</h1>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <form action = "{% url 'landing_news:new_create' %}" method= "post" enctype="multipart/form-data"> {% csrf_token %}
+                    {{form.as_p}}
+
+                    <button type= "submit"> Crear </button>
+
+                </form>
+
+                <a   href="{% url 'landing_news:landing'%}">
+                    <button type="button">Volver</button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

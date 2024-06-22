@@ -1,0 +1,39 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Mi perfil
+{% endblock title %}
+
+
+
+{% block body %}
+
+   
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1>Mi perfil</h1>
+                {{message}}
+                <ul>
+                    <li>Usuario: {{request.user.username}} </li>
+                    <li>Nombre {{request.user.first_name}} {{request.user.last_name}} </li>
+                    <li>Email: {{request.user.email}} </li>
+                </ul>
+                
+                <a   href="{% url 'login:edit_profile'%}">
+                    <button type="button">Editar perfil</button>
+                </a>
+
+
+                <a   href="{% url 'landing_news:landing'%}">
+                    <button type="button">Volver</button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

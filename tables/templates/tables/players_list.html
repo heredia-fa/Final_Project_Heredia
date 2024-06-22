@@ -1,0 +1,66 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    La Taverna de Lopen
+{% endblock title %}
+
+
+
+{% block body %}
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+            <form method="GET" action="">
+                <input type="text" name="q" placeholder="Buscar jugador" value="{{ request.GET.q }}">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <a   href="{% url 'tables:players_list'%}">
+                <button type="button">X</button>
+            </a>
+
+            {% if players %}
+                {% for player in players %}
+    
+                <div class="post-preview">
+                    <a href= "{% url 'tables:player_detail' player.id %}">
+                    <h3>{{player.name}}  {{player.lastname}} - {{player.age}}</h3>
+                    </a>
+                    <div style = "display: flex; column-gap: 5 px">
+                    <button>
+                        <a href="{% url 'tables:player_update' player.id %}" > Editar </a>
+                    </button>
+                    <button>
+                        <a href="{% url 'tables:player_delete' player.id %}" > Borrar </a>
+                    </button>
+
+                    </div>
+
+
+                    
+                    <hr class="my-4" />
+                </div>
+
+                {% endfor %}
+                
+            {% else %}
+                
+                <p>  No hay coincidencias con tu busqueda </p>
+
+            {% endif %}
+
+
+            
+            <a   href="{% url 'tables:player_create' %}">
+                <button type="button">Nuevo Jugador</button>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

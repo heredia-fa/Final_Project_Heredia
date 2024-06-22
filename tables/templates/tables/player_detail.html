@@ -1,0 +1,36 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Jugador
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <h1>{{player.name}} {{player.lastname}}</h1>
+
+                <ul>
+                    <li>Edad: {{player.age}}</li>
+                    <li>Email: {{player.email}}</li>
+                    <li>Juego favorito: {{player.favorite_game}}</li>
+                </ul>
+
+                {% if player.player_picture %}
+                <img src="{{ player.player_picture.url }}" alt="Foto de {{ player.name }}" width="" height="">
+                {% endif %}
+                
+                <a   href="{% url 'tables:players_list'%}">
+                    <button type="button">Volver</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}

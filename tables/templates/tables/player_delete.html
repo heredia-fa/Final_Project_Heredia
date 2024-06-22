@@ -1,0 +1,33 @@
+{% extends 'landing_news/father.html' %}
+{% load static %}
+
+{% block title %}
+    Eliminar Jugador
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <h1>Eliminar Jugador </h1>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <form action = "{% url 'tables:player_delete' player.id %}" method= "post" enctype="multipart/form-data"> {% csrf_token %}
+                    <p> Esta seguro que desea eliminar a {{player.name}} {{player.lastname}} </p>
+
+                    <button type = "submit"> Confirmar </button>
+                    <button ><a href= "{% url 'tables:players_list'%}"> Cancelar </a></button>
+
+                </form>
+
+
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
