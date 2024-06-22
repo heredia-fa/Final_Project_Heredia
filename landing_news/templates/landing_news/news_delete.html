@@ -9,12 +9,13 @@
 
 {% block body %}
 
-    <h1>Eliminar Noticia </h1>
+    
 
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1>Eliminar Noticia </h1>
 
                 <form action = "{% url 'landing_news:new_delete' new.id %}" method= "post" enctype="multipart/form-data"> {% csrf_token %}
                     <p> Esta seguro que desea eliminal la noticia {{new.title}} </p>

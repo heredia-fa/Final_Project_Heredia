@@ -16,7 +16,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
 
-                <form action = "{% url 'tables:player_delete' player.id %}" method= "post" enctype="multipart/form-data"> {% csrf_token %}
+                <form action = "{% url 'tables:player_delete' player.id %}" method= "post" > {% csrf_token %}
                     <p> Esta seguro que desea eliminar a {{player.name}} {{player.lastname}} </p>
 
                     <button type = "submit"> Confirmar </button>

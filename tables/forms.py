@@ -21,3 +21,14 @@ class Edit_table_form(forms.ModelForm):
         widgets = {
             'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
+
+
+class Player_create_form(forms.Form):
+
+    name = forms.CharField(label= "Nombre")
+    lastname = forms.CharField(label= "Apellido")
+    email = forms.EmailField()
+    age= forms.IntegerField(label="Edad")
+    favorite_game = forms.CharField(label="Juego favorito")
+    player_picture = forms.ImageField(required=False,label="Imagen")
+  

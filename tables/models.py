@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -23,6 +24,10 @@ class Game_table(models.Model):
        cant= self.max_players - self.players.count()
        return cant
     
+    class Meta:
+        verbose_name = 'Mesa de juego'
+        verbose_name_plural = 'Mesas de juego'
+    
 
 
 class Player(models.Model):
@@ -32,7 +37,12 @@ class Player(models.Model):
     email = models.EmailField()
     age= models.IntegerField(verbose_name="Edad")
     favorite_game = models.CharField(max_length=30, verbose_name="Juego favorito")
-    player_picture = models.ImageField(upload_to='media/player_picture',null=True, blank=True, verbose_name="Imagen")
+    player_picture = models.ImageField(upload_to='player_picture',null=True, blank=True, verbose_name="Imagen")
+    #user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.name} {self.lastname}"
+    
+    class Meta:
+        verbose_name = 'Jugador'
+        verbose_name_plural = 'Jugadores'

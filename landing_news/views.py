@@ -2,6 +2,7 @@ from .models import News
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
@@ -21,26 +22,26 @@ class News_list(ListView):
 
 
 
-class News_detail(DetailView):
+class News_detail(LoginRequiredMixin,DetailView):
     model = News
     context_object_name = 'new'
 
 
-class News_create(CreateView):
+class News_create(LoginRequiredMixin,CreateView):
     model = News
     template_name = 'landing_news/news_create.html'
     fields = ["title" , "description", "picture"]
     success_url =  reverse_lazy("landing_news:landing")
 
 
-class News_update(UpdateView):
+class News_update(LoginRequiredMixin,UpdateView):
     model = News
     template_name = 'landing_news/news_update.html'
     fields = ('__all__')
     success_url =  reverse_lazy("landing_news:landing")
     context_object_name = 'new'
 
-class News_delete(DeleteView):
+class News_delete(LoginRequiredMixin,DeleteView):
     model = News
     template_name = 'landing_news/news_delete.html'
     context_object_name = 'new'

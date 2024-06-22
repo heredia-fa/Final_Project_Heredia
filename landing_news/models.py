@@ -7,10 +7,14 @@ class News(models.Model):
     description = models.TextField(verbose_name="Descripcion")
     date = models.DateTimeField(auto_now=True, verbose_name="Última Modificación")
     original_date =  models.DateTimeField(auto_now_add=True, verbose_name="Fecha Creación")
-    picture=models.ImageField(upload_to='media/news_pictures',null=True, blank=True, verbose_name="Imagen")
+    picture=models.ImageField(upload_to='news_pictures',null=True, blank=True, verbose_name="Imagen")
 
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = 'Noticia'
+        verbose_name_plural = 'Noticias'
 
             

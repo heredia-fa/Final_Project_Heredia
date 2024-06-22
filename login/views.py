@@ -4,7 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from login.forms import User_edit_form
+from login.forms import User_edit_form 
 
 # Create your views here.
 
@@ -107,28 +107,4 @@ def edit_user(req):
         return render(req, "login/edit_user.html", {"myform": myform})
     
 
-# def agregar_avatar(req):
-
-#   if req.method == 'POST':
-
-#     miFormulario = AvatarFormulario(req.POST, req.FILES)
-
-#     if miFormulario.is_valid():
-
-#       data = miFormulario.cleaned_data
-
-#       avatar = Avatar(user=req.user, imagen=data["imagen"])
-#       avatar.save()
-
-#       return render(req, "inicio.html", {"message": "Avatar cargado con éxito"})
-    
-#     else:
-
-#       return render(req, "inicio.html", {"message": "Datos inválidos"})
-  
-#   else:
-
-#     miFormulario = AvatarFormulario()
-
-#     return render(req, "agregar_avatar.html", {"miFormulario": miFormulario})
     

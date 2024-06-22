@@ -30,4 +30,11 @@ class User_edit_form(UserChangeForm):
         #self.fields['username'].label = 'Nombre de Usuario'
         self.fields['first_name'].label = 'Nombre'
         self.fields['last_name'].label = 'Apellido'
-        self.fields['email'].label = 'Correo Electrónico'    
+        self.fields['email'].label = 'Correo Electrónico'  
+    
+    
+    
+    
+
+
+ 
